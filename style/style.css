@@ -1,0 +1,28 @@
+body{
+    background-image: url("../img/m5.jpg");
+}
+
+.sign_up{
+    text-align: center;
+}
+
+.signup_form{
+    margin-left: 42%;
+
+}
+
+.signup_form input {
+    margin-top: 2%;
+    width: 30%;
+    height: 40%;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 23px 2px #000000;
+    text-align: center;
+}
+
+.forger_pass{
+    margin-top: 1%;
+    margin-left: 53%;
+
+}
