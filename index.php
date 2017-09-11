@@ -1,4 +1,3 @@
-<?php 
-    echo "283 422euro";
-
+<?php
+    echo "Jus esat veiksmigi registrejies. Paldies!";
 ?>

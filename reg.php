@@ -10,6 +10,7 @@
     $error_message_ln2 = "";
     $error_message_ln3 ="";
     $error_message_em = "";
+    $error_message_em2 = "";
     $error_message_age = "";
     $error_message_age2 = "";
     $error_message_pass = "";
@@ -39,6 +40,7 @@
         $error_message_ln2 = "";
         $error_message_ln3 ="";
         $error_message_em = "";
+        $error_message_em2 = "";
         $error_message_age = "";
         $error_message_age2 = "";
         $error_message_pass = "";
@@ -107,6 +109,12 @@
             $errors['email'] = 1;
         }
 
+        if($row['email']==$email) {
+            $error_message_em2 .= "Your e-mails are already there!";
+        }else{
+
+            
+        }
 
 // ------------------------------------------- >>>
 
@@ -127,7 +135,7 @@
 
 
         // password validation
-        if (empty($pass)){
+        if (empty($password)){
             $trueError = true;
             $error_message_pass .= '<p style = "color: red;">Please enter password.</p>';
             $errors['pass'] = 1;
@@ -146,7 +154,7 @@
         }
 
         if(!$trueError){
-            $sql = "INSERT INTO `signup`(`id`, `firstname`, `lastname`, `email`, `age`, `password`) VALUES(:firstname, :lastname, :email, :age, :password)";
+            $sql = "INSERT INTO `signup`(`firstname`, `lastname`, `email`, `age`, `password`) VALUES(:firstname, :lastname, :email, :age, :password)";
 
             $row = insertDataInToDataBase($sql, [
                 'firstname' => $f_name,
@@ -170,7 +178,7 @@
             $getID = getDataFromDatabase($qe,$pay);
             $_SESSION['uid'] = $getID['id'];
             print_r( $_SESSION['uid']);
-            $link = $SiteUrl."index.php";
+            $link = $SiteUrl."reg.php";
             header('location:'.$link);
             exit;
 
@@ -220,10 +228,11 @@
                     </div>
                     <!--END-->
 
-                <input type="text" name="email" value = "<?php if(isset($_POST['email']) && $errors['email'] == 0){ echo $_POST['email']; } ?>" placeholder="EMAIL"><br>
+                <input type="email" name="email" value = "<?php if(isset($_POST['email']) && $errors['email'] == 0){ echo $_POST['email']; } ?>" placeholder="EMAIL"><br>
                     <!--ERRROR  -->
                     <div class = "input-error">
                         <?php echo ($error_message_em); ?>
+                        <?php echo ($error_message_em2); ?>
                     </div>
                     <!--END-->
                 
@@ -235,7 +244,7 @@
                     </div>
                     <!--END-->
 
-                <input type="text" name="pass" value = "<?php if(isset($_POST['pass']) && $errors['pass'] == 0){ echo $_POST['pass']; } ?>" placeholder="PASSWORD"><br>
+                <input type="password" name="pass" value = "<?php if(isset($_POST['pass']) && $errors['pass'] == 0){ echo $_POST['pass']; } ?>" placeholder="PASSWORD"><br>
                     <!--ERRROR  -->
                     <div class = "input-error">
                         <?php echo ($error_message_pass); ?>
@@ -243,7 +252,7 @@
                     </div>
                     <!--END-->
                 
-                <input type="text" name="re_pass" value = "<?php if(isset($_POST['re_pass']) && $errors['re_pass'] == 0){ echo $_POST['re_pass']; } ?>" placeholder="RE_PASSWORD"><br>
+                <input type="password" name="re_pass" value = "<?php if(isset($_POST['re_pass']) && $errors['re_pass'] == 0){ echo $_POST['re_pass']; } ?>" placeholder="RE_PASSWORD"><br>
                     <!--ERRROR  -->
                     <div class = "input-error">
                         <?php echo ($error_message_pass3); ?>
