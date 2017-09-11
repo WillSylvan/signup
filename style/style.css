@@ -2,6 +2,13 @@ body{
     background-image: url("../img/m5.jpg");
 }
 
+.sign_up h1{
+    color: white;
+    font-family: 'Lobster', cursive;
+
+
+}
+
 .sign_up{
     text-align: center;
 }
@@ -19,10 +26,21 @@ body{
     border-radius: 10px;
     box-shadow: 0px 1px 23px 2px #000000;
     text-align: center;
+    font-family: 'Baloo Tammudu', cursive;
 }
 
 .forger_pass{
     margin-top: 1%;
     margin-left: 53%;
+
+}
+
+.input-error{
+
+    font-family: 'Russo One', sans-serif;
+    background-color: white;
+    width: 30%;
+
+
 
 }

@@ -50,4 +50,16 @@
 
     }
 
+    
+
+    function hashPass($password) {
+        global $salt;
+        return hash('sha512', $salt . $password);
+    }
+    
+    function verifyPass($password, $hash) {
+        global $salt;
+        return ($hash == hashPass($password));
+    }
+
 ?>
